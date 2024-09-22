@@ -11,6 +11,10 @@ user_route.use(bodyParser.urlencoded({ extended: true }));
 user_route.set('view engine', 'ejs');
 user_route.set('views', './views');
 
+const expressLayouts = require('express-ejs-layouts');
+user_route.use(expressLayouts);
+user_route.set('layout', 'layouts/layout');
+
 user_route.use(express.static('public'));
 
 const path = require('path');
