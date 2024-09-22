@@ -33,4 +33,14 @@ const userController = require('../controllers/userController');
 user_route.get('/register', userController.registerLoad);
 user_route.post('/register', upload.single('image'), userController.register);
 
+user_route.get('/', userController.loadLogin);
+user_route.post('/', userController.login);
+user_route.post('/logout', userController.logout);
+
+user_route.get('/dashboard', userController.loadDashboard);
+
+user_route.get('*', function (req, res) {
+    res.redirect('/');
+});
+
 module.exports = user_route;
